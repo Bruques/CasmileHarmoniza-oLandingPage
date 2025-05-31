@@ -24,13 +24,21 @@
                     <a href="https://wa.me/5511999999999?text=Olá! Gostaria de agendar uma consulta gratuita." target="_blank" rel="noopener noreferrer" class="cta-button">Agendar Consulta</a>
                 </div>
                 <div class="mobile-menu">
-                    <button class="menu-button">
+                    <button class="menu-button" onclick="toggleMobileMenu()">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="4" x2="20" y1="12" y2="12"></line>
                             <line x1="4" x2="20" y1="6" y2="6"></line>
                             <line x1="4" x2="20" y1="18" y2="18"></line>
                         </svg>
                     </button>
+                    <div class="mobile-nav">
+                        <button onclick="scrollToSection('hero')">Início</button>
+                        <button onclick="scrollToSection('about')">Sobre</button>
+                        <button onclick="scrollToSection('services')">Serviços</button>
+                        <button onclick="scrollToSection('testimonials')">Depoimentos</button>
+                        <button onclick="scrollToSection('contact')">Contato</button>
+                        <a href="https://wa.me/5511999999999?text=Olá! Gostaria de agendar uma consulta gratuita." target="_blank" rel="noopener noreferrer" class="cta-button">Agendar Consulta</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -525,7 +533,19 @@
             const section = document.getElementById(sectionId);
             if (section) {
                 section.scrollIntoView({ behavior: 'smooth' });
+                // Close mobile menu after clicking
+                const mobileNav = document.querySelector('.mobile-nav');
+                if (mobileNav.classList.contains('active')) {
+                    toggleMobileMenu();
+                }
             }
+        }
+
+        function toggleMobileMenu() {
+            const mobileNav = document.querySelector('.mobile-nav');
+            const menuButton = document.querySelector('.menu-button');
+            mobileNav.classList.toggle('active');
+            menuButton.classList.toggle('active');
         }
     </script>
 </body>
