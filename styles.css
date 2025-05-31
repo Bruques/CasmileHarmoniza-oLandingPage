@@ -121,6 +121,10 @@ body {
     }
 }
 
+.menu-toggle {
+    display: none;
+}
+
 .menu-button {
     background: none;
     border: none;
@@ -130,6 +134,7 @@ body {
     position: relative;
     width: 24px;
     height: 24px;
+    display: block;
 }
 
 .menu-button:hover {
@@ -155,12 +160,12 @@ body {
     transform: rotate(-90deg);
 }
 
-.menu-button.active .hamburger-icon {
+.menu-toggle:checked ~ .menu-button .hamburger-icon {
     opacity: 0;
     transform: rotate(90deg);
 }
 
-.menu-button.active .close-icon {
+.menu-toggle:checked ~ .menu-button .close-icon {
     opacity: 1;
     transform: rotate(0);
 }
@@ -183,31 +188,34 @@ body {
     z-index: 40;
 }
 
-.mobile-nav.active {
+.menu-toggle:checked ~ .mobile-nav {
     transform: translateY(0);
     opacity: 1;
     visibility: visible;
 }
 
-.mobile-nav button {
-    background: none;
-    border: none;
+.mobile-nav-link {
     color: var(--clinic-slate);
     font-size: 1.125rem;
     font-weight: 500;
     padding: 0.75rem;
-    text-align: left;
-    cursor: pointer;
+    text-decoration: none;
     transition: color 0.2s;
 }
 
-.mobile-nav button:hover {
+.mobile-nav-link:hover {
     color: var(--clinic-gold);
 }
 
 .mobile-nav .cta-button {
     margin-top: 0.5rem;
     text-align: center;
+}
+
+/* Prevent body scroll when menu is open */
+.menu-toggle:checked ~ .mobile-nav {
+    overflow-y: auto;
+    max-height: calc(100vh - 4rem);
 }
 
 /* Hero Section */

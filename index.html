@@ -24,7 +24,8 @@
                     <a href="https://wa.me/5511999999999?text=Olá! Gostaria de agendar uma consulta gratuita." target="_blank" rel="noopener noreferrer" class="cta-button">Agendar Consulta</a>
                 </div>
                 <div class="mobile-menu">
-                    <button class="menu-button" onclick="toggleMobileMenu()">
+                    <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                    <label for="menu-toggle" class="menu-button">
                         <svg class="hamburger-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                             <line x1="4" x2="20" y1="12" y2="12"></line>
                             <line x1="4" x2="20" y1="6" y2="6"></line>
@@ -34,13 +35,13 @@
                             <line x1="18" y1="6" x2="6" y2="18"></line>
                             <line x1="6" y1="6" x2="18" y2="18"></line>
                         </svg>
-                    </button>
+                    </label>
                     <div class="mobile-nav">
-                        <button onclick="scrollToSection('hero')">Início</button>
-                        <button onclick="scrollToSection('about')">Sobre</button>
-                        <button onclick="scrollToSection('services')">Serviços</button>
-                        <button onclick="scrollToSection('testimonials')">Depoimentos</button>
-                        <button onclick="scrollToSection('contact')">Contato</button>
+                        <a href="#hero" class="mobile-nav-link">Início</a>
+                        <a href="#about" class="mobile-nav-link">Sobre</a>
+                        <a href="#services" class="mobile-nav-link">Serviços</a>
+                        <a href="#testimonials" class="mobile-nav-link">Depoimentos</a>
+                        <a href="#contact" class="mobile-nav-link">Contato</a>
                         <a href="https://wa.me/5511999999999?text=Olá! Gostaria de agendar uma consulta gratuita." target="_blank" rel="noopener noreferrer" class="cta-button">Agendar Consulta</a>
                     </div>
                 </div>
@@ -537,19 +538,7 @@
             const section = document.getElementById(sectionId);
             if (section) {
                 section.scrollIntoView({ behavior: 'smooth' });
-                // Close mobile menu after clicking
-                const mobileNav = document.querySelector('.mobile-nav');
-                if (mobileNav.classList.contains('active')) {
-                    toggleMobileMenu();
-                }
             }
-        }
-
-        function toggleMobileMenu() {
-            const mobileNav = document.querySelector('.mobile-nav');
-            const menuButton = document.querySelector('.menu-button');
-            mobileNav.classList.toggle('active');
-            menuButton.classList.toggle('active');
         }
     </script>
 </body>
